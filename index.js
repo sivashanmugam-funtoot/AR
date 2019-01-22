@@ -6,11 +6,21 @@ var app = express()
 app.use('/js', express.static(__dirname + '/public/src/js'));
 app.use('/css', express.static(__dirname + '/public/src/css'));
 app.use('/images', express.static(__dirname + '/public/image'))
+app.use('/audio', express.static(__dirname + '/public/audio'))
 app.use('/patterns', express.static(__dirname + '/public/patterns'))
 
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/pages/test.html');
+  });
+
+  app.get('/alphabets', function(req, res){
+    res.sendFile(__dirname + '/pages/alphabets.html');
+  });
+
+
+  app.get('/animals', function(req, res){
+    res.sendFile(__dirname + '/pages/animals.html');
   });
 
 https.createServer({
