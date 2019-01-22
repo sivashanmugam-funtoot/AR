@@ -10,7 +10,7 @@ app.use('/patterns', express.static(__dirname + '/public/patterns'))
 
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/pages/index.html');
+    res.sendFile(__dirname + '/pages/test.html');
   });
 
 https.createServer({
