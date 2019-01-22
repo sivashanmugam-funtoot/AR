@@ -18,6 +18,9 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/pages/alphabets.html');
   });
 
+  app.get('/faces', function(req, res){
+    res.sendFile(__dirname + '/pages/faces.html');
+  });
 
   app.get('/animals', function(req, res){
     res.sendFile(__dirname + '/pages/animals.html');
