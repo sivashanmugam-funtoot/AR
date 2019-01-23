@@ -1,20 +1,57 @@
 <!doctype HTML>
 <html>
-<!-- <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script> -->
-
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 <script src="./js/animals.js"></script>
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs>
-      <a-marker preset='custom'  type="pattern" url="patterns/alphabets/lion.patt">
-        <a-box color="#FFFFFFF" position="0 2 -10" rotation="0 50 50"  play-audio-of-lion src="./images/animals/lion.jpeg" >
+    <a-scene embedded arjs="debugUIEnabled: false">
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/LION.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/lion.jpeg" >
         </a-box>
-        <a-camera>
-            <a-cursor></a-cursor>
-            <!-- Or <a-entity cursor></a-entity> -->
-          </a-camera>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/CAT.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/cat.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/CAMEL.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/camel.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/DEER.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/deer.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/DOG.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/dog.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/DUCK.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/duck.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/OWL.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/owl.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/PEGION.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/pegion.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/SHEEP.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/sheep.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/STORK.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/stork.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/TIGER.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/tiger.jpeg" >
+        </a-box>
+      </a-marker>
+      <a-marker preset='custom'  type="pattern" url="patterns/animals/WOLF.patt">
+        <a-box color="#FFFFFFF" position="0 0.5 0"    src="./images/animals/wolf.jpeg" >
+        </a-box>
       </a-marker>
     <a-entity camera ></a-entity>
     </a-scene>
