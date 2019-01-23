@@ -26,6 +26,10 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/pages/animals.html');
   });
 
+  app.get('/characters', function(req, res){
+    res.sendFile(__dirname + '/pages/characters.html');
+  });
+
 https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')
