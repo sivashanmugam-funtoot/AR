@@ -1,21 +1,11 @@
 <!doctype HTML>
 <html>
-<!-- <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script> -->
-
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 <script src="./js/animals.js"></script>
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs>
-      <a-marker preset='custom'  type="pattern" url="patterns/alphabets/lion.patt">
-        <a-box color="#FFFFFFF" position="0 2 -10" rotation="0 50 50"  play-audio-of-lion src="./images/animals/lion.jpeg" >
-        </a-box>
-        <a-camera>
-            <a-cursor></a-cursor>
-            <!-- Or <a-entity cursor></a-entity> -->
-          </a-camera>
-      </a-marker>
+    <a-scene embedded arjs="debugUIEnabled: false">
+      
     <a-entity camera ></a-entity>
     </a-scene>
   </body>
