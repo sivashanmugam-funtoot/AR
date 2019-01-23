@@ -1,14 +1,16 @@
-AFRAME.registerComponent('play-audio-on-click', {
-    init: function () {
-      var el = this.el;  // <a-box>
-      console.log('sivashanmugam')
-      console.log(el)
-      el.addEventListener('click', function () {
-        var audioIns = new Audio("https://shivashanmugam.github.io/Web-Audio-API-With-visualizer/vogel-dreamwave.mp3");
-        audioIns.play();
-        
+var socket = io.connect('http://localhost:8080')
+
+var reload_button = document.getElementById("reload-button")
 
 
-      });
-    } 
-  });
+ //Emit message
+reload_button.addEventListener('click', function(){
+  socket.emit('reload_emit', {})
+})
+ 
+
+
+ //Listen on new_message
+socket.on("reload_broadcast", (data) => {
+    location.reload();
+})
