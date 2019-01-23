@@ -1,6 +1,6 @@
 var express = require('express')
 var fs = require('fs')
-var https = require('https')
+var https = require('http')
 var app = express()
 
 app.use('/js', express.static(__dirname + '/public/src/js'));
@@ -10,24 +10,9 @@ app.use('/audio', express.static(__dirname + '/public/audio'))
 app.use('/patterns', express.static(__dirname + '/public/patterns'))
 
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/pages/test.html');
-  });
 
-  app.get('/alphabets', function(req, res){
-    res.sendFile(__dirname + '/pages/alphabets.html');
-  });
-
-  app.get('/faces', function(req, res){
-    res.sendFile(__dirname + '/pages/faces.html');
-  });
-
-  app.get('/animals', function(req, res){
-    res.sendFile(__dirname + '/pages/animals.html');
-  });
-
-  app.get('/characters', function(req, res){
-    res.sendFile(__dirname + '/pages/characters.html');
+  app.get('/ar', function(req, res){
+    res.sendFile(__dirname + '/pages/ar.html');
   });
   
     app.get('/login', function(req, res){
