@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:8080')
+var socket = io.connect('https://gallary-rummysiva.c9users.io/')
 
 var reload_button = document.getElementById("reload-button")
 
