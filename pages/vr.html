@@ -1,0 +1,36 @@
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+<script src="./js/index.js"></script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs>
+      <a-box play-audio-on-click position="0 2 -10" rotation="0 50 50"  width="2" src="./images/animals/bear.jpeg"></a-box>  
+
+      <a-box play-audio-on-click position="8 2 -16" rotation="0 50 50"  width="2" src="./images/animals/cat.jpeg"></a-box>  
+
+      <a-box play-audio-on-click position="16 2 -24" rotation="0 50 50"  width="2" src="./images/animals/deer.jpg"></a-box>  
+
+      <a-box play-audio-on-click position="32 2 -30" rotation="0 50 50"  width="2" src="./images/animals/lion.jpeg"></a-box> 
+
+      <a-box play-audio-on-click position="64 2 -36" rotation="0 50 50"  width="2" src="./images/animals/tiger.jpeg"></a-box>   
+
+      <a-camera><a-cursor color="yellow"></a-cursor><a-camera>
+    </a-scene>
+  </body>
+  
+  
+  <script>
+  
+  AFRAME.registerComponent('play-audio-on-click', {
+    init: function () {
+      var el = this.el;  // <a-box>
+      console.log(el)
+      el.addEventListener('mouseover', function () {
+        var audioIns = new Audio("https://shivashanmugam.github.io/Web-Audio-API-With-visualizer/vogel-dreamwave.mp3");
+        audioIns.play();
+      });
+    } 
+  });
+  </script>
+</html>

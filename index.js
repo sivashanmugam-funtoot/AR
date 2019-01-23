@@ -34,6 +34,10 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/pages/login.html');
   });
 
+  app.get('/vr', function(req, res){
+    res.sendFile(__dirname + '/pages/vr.html');
+  });
+
 https.createServer({
   key: fs.readFileSync('server.key'),
   cert: fs.readFileSync('server.cert')
