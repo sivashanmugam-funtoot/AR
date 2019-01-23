@@ -29,12 +29,14 @@ app.get('/', function(req, res){
   app.get('/characters', function(req, res){
     res.sendFile(__dirname + '/pages/characters.html');
   });
+  
+    app.get('/login', function(req, res){
+    res.sendFile(__dirname + '/pages/login.html');
+  });
 
-https.createServer({
-  key: fs.readFileSync('server.key'),
-  cert: fs.readFileSync('server.cert')
-}, app)
-.listen(3000, function () {
-  console.log('Example app listening on port 3000! Go to https://localhost:3000/')
+
+
+app.listen(8080, function () {
+  console.log('Example app listening')
 })
 
