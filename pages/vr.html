@@ -6,35 +6,20 @@
 <script src="./js/vr.js"></script>
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
-      <a-box play-audio-on-click position="-4 2 -1" rotation="0 70 0"  width="2" src="./images/animals/deer.jpeg"></a-box>
+      <a-box play-audio-on-click-deer position="-4 2 -1" rotation="0 70 0"  width="2" src="./images/animals/deer.jpeg"></a-box>
       
-      <a-box play-audio-on-click position="0 2 -3" rotation="30 0 0"  width="2" src="./images/animals/clarity.jpeg"></a-box>
+      <a-box play-audio-on-click-wolf position="0 2 -3" rotation="30 0 0"  width="2" src="./images/animals/wolf.jpeg"></a-box>
       
-      <a-box play-audio-on-click position="2.2 2 -2" rotation="30 -45 0"  width="2" src="./images/animals/dog.jpeg"></a-box>
+      <a-box play-audio-on-click-dog position="2.2 2 -2" rotation="30 -45 0"  width="2" src="./images/animals/dog.jpeg"></a-box>
       
-      <a-box play-audio-on-click position="2.5 2 0.5" rotation="30 -110 0"  width="2" src="./images/animals/sheep.jpeg"></a-box>
+      <a-box play-audio-on-click-sheep position="2.5 2 0.5" rotation="30 -110 0"  width="2" src="./images/animals/sheep.jpeg"></a-box>
       
-      <a-box play-audio-on-click position="-0.5 2 2" rotation="30 -190 0"  width="2" src="./images/animals/lion.jpeg"></a-box>
-      
-      
-
+      <a-box play-audio-on-click-lion position="-0.5 2 2" rotation="30 -190 0"  width="2" src="./images/animals/lion.jpeg"></a-box>
 
       <a-camera><a-cursor color="yellow"></a-cursor><a-camera>
     </a-scene>
   </body>
   
   
-  <script>
-  document.querySelector('a-scene').enterVR();
-  AFRAME.registerComponent('play-audio-on-click', {
-    init: function () {
-      var el = this.el;  // <a-box>
-      console.log(el)
-      el.addEventListener('mouseover', function () {
-        var audioIns = new Audio("https://shivashanmugam.github.io/Web-Audio-API-With-visualizer/vogel-dreamwave.mp3");
-        audioIns.play();
-      });
-    } 
-  });
-  </script>
+
 </html>
