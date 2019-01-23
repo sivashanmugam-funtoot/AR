@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" type="text/javascript"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.0.6/fingerprint2.min.js"></script>
     <style>
         .login-container {
             width: 500px;
@@ -47,6 +47,8 @@
     </div>
 
     <script>
+        var deviceId;
+        Fingerprint2.getV18((did) => { deviceId = did; });
         var video = document.createElement("video");
         var canvasElement = document.getElementById("canvas");
         var canvas = canvasElement.getContext("2d");
@@ -84,6 +86,7 @@
             requestAnimationFrame(tick);
         }
         function verifyQrCode(code) {
+            // Add your stall data
             var data = {
                 request: {
                     code: code,
@@ -91,36 +94,6 @@
                     stallCode: 'STA1',
                     ideaCode: 'Idea Code'
                 }
-            };
-            var telemetryData = {
-                "events": [{
-                    "eid": "DC_START",
-                    "ets": new Date().getTime(),
-                    "did": "ddd",
-                    "dimensions": {
-                        "visitorId": code,
-                        "stallId": "stallId",
-                        "ideaId": "ideaId",
-                        "visitorName": "Visitor Name",
-                        "studentId": "studentId",
-                        "studentName": "studentName",
-                        "teacherId": "teacherId",
-                        "teacherName": "teacherName",
-                        "parentId": "parentId",
-                        "parentName": "parentName",
-                        "stallName": "stallName",
-                        "ideaName": "ideaName",
-                        "classroomId": "classroomId",
-                        "school": "school",
-                        "district": "district",
-                        "period": "period",
-                        "topics": "topics",
-                        "subject": "subject",
-                        "grade": "grade"
-                    },
-                    "edata": {}
-                }
-                ]
             };
             $.ajax({
                 method: 'POST',
@@ -130,17 +103,37 @@
                 contentType: 'application/json',
             }).done(function (data) {
                 if (data.result && data.result.Visitor) {
+                    // Add your stall telemetry data and remove unwanted telemetry
+                    var telemetryData = {
+                        "events": [{
+                            "eid": "DC_START",
+                            "ets": new Date().getTime(),
+                            "did": deviceId,
+                            "dimensions": {
+                                "visitorId": code,
+                                "visitorName": data.result.Visitor.name,
+                                "stallId": "STA2",
+                                "ideaId": "IDE9",
+                                "stallName": "Classroom",
+                                "ideaName": "AR/VR Classroom",
+                                "school": "school 1",
+                                "district": "district 1"
+                            },
+                            "edata": {}
+                        }
+                        ]
+                    };
                     $.ajax({
                         method: 'POST',
                         url: 'http://52.172.188.118:3000/v1/telemetry',
                         data: JSON.stringify(telemetryData),
                         dataType: 'json',
                         contentType: 'application/json',
-                    }).done(function (data) {
-
+                    }).catch(function (data) {
                         console.log(data)
                     });
                     iziToast.success({ title: 'Success', message: 'Login successful', position: 'topCenter' });
+                    window.location.href = "ar";
                 } else {
                     iziToast.error({ title: 'Error', message: 'Invalid Login ID', position: 'topCenter' });
                 }
@@ -150,3 +143,4 @@
         }
     </script>
 </body>
+</html>
